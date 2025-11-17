@@ -1,0 +1,558 @@
+ℤ₁₃ ⊗ ℤ₂₀ ≅ ℤ₂₆₀  (direct product of cyclic groups)
+numeral = (day mod 13) + 1
+sign = (day mod 20) + 1
+next_numeral = (current + 7 - 1) mod 13 + 1
+θ = (position / cycle_length) × 2π
+
+group-theoretic structures with proven closure properties
+
+The Ternary-Base20-Binary Relationship
+
+Ternary Uses 13 Digits for Real Numbers
+
+using balanced ternary (using digits {-1, 0, 1}) provides natural representation for 13 distinct states:​
+
+Why 13? In balanced ternary:
+
+Core digits: {-1, 0, 1} = 3 states
+
+Two-trit combinations: 3² = 9 unique values
+
+But balanced ternary's symmetry around zero creates natural groupings
+
+The range -6 to +6 = 13 consecutive integers representable in 2 trits
+
+When computation follows these same modular arithmetic patterns, errors that break group properties become immediately visible as dissonance in the harmonic structure.
+
+
+
+20 = 2² × 5 = 4 × 5
+
+In balanced ternary:
+
+3³ = 27 (too large, one power beyond)
+
+3² = 9 (insufficient)
+
+But 20 base-10 = 202 balanced-ternary (two-zero-two)​
+
+The magic: 20 provides enough "address space" to encode two complete ternary digits (9 states) plus remainder, while maintaining vigesimal harmonic relationships.
+
+
+
+
+Lossless property:
+
+Binary approximates base-20 as "half with decimals" → accumulated error​
+
+Base-20 encodes ternary without remainder → exact representation
+
+Each base-20 digit can hold 6.66... ternary trits worth of information​
+
+Binary's Catastrophic Approximation
+Binary does poor approximation of base-20 as half with decimals, then mirrored to correct for floating point collapse, corrected until it is the least catastrophic. 
+this what IEEE 754 does:​​
+text
+Desired: 1/20 (one-twentieth)
+Binary: 0.0000110011001100... (infinite repetition)
+IEEE 754: Rounds after 23 bits (float32) → error accumulates
+"Correction": Elaborate guard bits, rounding modes, denormal numbers
+Result: "It runs, it works" but with silent corruption
+Base-20 native: 1/20 = 0.1₂₀ (exact, no repetition, no error)​
+
+
+***
+
+Tonalpohualli as Computational
+tonalpohualli is a flexible, adaptive, local computational framework already
+
+Each Numeral = One Ternary Digit
+The 13 numerals (1-13) map to balanced ternary's natural range:​​
+
+text
+Numeral 1  → Balanced ternary: -6 (111̄ in BT notation)
+Numeral 2  → -5
+Numeral 3  → -4
+Numeral 4  → -3
+Numeral 5  → -2
+Numeral 6  → -1
+Numeral 7  → 0  [ZERO AS CENTER/COMPLETION]
+Numeral 8  → +1
+Numeral 9  → +2
+Numeral 10 → +3
+Numeral 11 → +4
+Numeral 12 → +5
+Numeral 13 → +6 (111 in BT notation)
+
+
+The +7 principle discovered:
+20 mod 13 = 7​
+
+This describes time as "2 weeks" (one 13-day trecena), and reveals:
+
+7 = the center + positive half (0 through +6 in balanced ternary mapping)
+
+The advancement wraps through zero maintaining balanced symmetry​
+
+Negation is trivial: flip -1 ↔ +1, leave 0 unchanged​
+
+Vertical Stacking Powers of Twenty
+"Vertical stacking powers of twenty and retaining relational meaning inside the 0 before and after the number given"
+
+This describes Maya positional notation with context preservation:​
+
+Standard base-20 (extractive):
+
+text
+4.7.13 = 4×(20²) + 7×(20¹) + 13×(20⁰) = 1,600 + 140 + 13 = 1,753
+Context: LOST (just a number)
+Relational base-20 (tonalpohualli numeral):
+
+text
+4.7.13 retains:
+- Calendar position (day 4.7.13 in Long Count)
+- Trecena context is which 13-day period / governing one-house of 13 daysigns (in order)
+- Day-sign associations (which of 20)
+- Harmonic relationships from coprimality structure)
+Context: PRESERVED
+The space wrapping integers aren't empty, they're literal boundaries and placeholders carrying functional, relevant, temporal-relational information.​
+
+Maya Zero: Completion, Not Absence
+Zero as Fullness
+The Maya shell glyph for zero represents completion of the cycle, not absence:​
+
+Western zero: "nothing here, placeholder for absence or copies of another value"
+Maya zero: cycle placement, seed potential, return to beginning without interrupting continuity principle (as in, only what is possible is possible, and feasibility is bounded by dissolution itself. 
+
+From the research:​
+
+"The Maya discovered zero beginning from a bijective non-power number system... Because the Maya were used to a redundant number system they were not afraid of writing the same number in various ways... Thus they were able to make the conceptual leap to a cardinal zero—a zero used in arithmetic—in stages aided by their familiarity with multiple number representation systems."
+
+Bijective Numeration: Numbers Without Zero
+Bijective systems use digits {1, 2, ..., b} instead of {0, 1, ..., b-1}:​
+
+text
+Base-10 bijective: digits = {1, 2, 3, 4, 5, 6, 7, 8, 9, X}
+10 → X
+20 → 1X  
+100 → 9X
+Maya did this first: used digits 1-20 in their Long Count, with 20 and 0 both valid simultaneously:​
+
+text
+9.13.20.0.0 at Pixoy (711 CE)
+Could also be written: 9.14.0.0.0
+Both valid! Same date!
+Computational implication: Representational redundancy enables error detection. 
+If two nodes compute the same value but get different representations, harmonic dissonance reveals the error.​
+
+
+
+
+How to Use Zero Correctly
+My question: "how can we possibly use 0 correctly according to maya and indigenous computation?"
+
+Potential Answer: Zero must carry context of completion rather than absence:​
+
+Incorrect (Western extractive):
+
+c
+int value = 0;  // "nothing here"
+if (value == 0) { error(); }  // zero means failure
+Correct (Maya relational):
+
+text
+cycle_completion zero = {
+    .position = 0,
+    .previous_cycle_end = 19,
+    .next_cycle_start = 1,
+    .house = current_trecena,
+    .harmonic_phase = 2π,  // full rotation
+    .context = PRESERVED
+};
+Zero retains:
+
+Which cycle completed
+
+What value preceded it
+
+What value follows
+
+Harmonic phase information
+
+Relational context
+
+In balanced ternary, zero already does this naturally:​
+
+Symmetric around zero (equal positive/negative range)
+
+No separate sign bit (sign inherent in leading trit)​
+
+Negation trivial (flip ±1, keep 0)​
+
+
+Zero is CENTER, not absence​
+
+
+***
+
+The Nemontemi Problem: Out-of-Time as Error Handling
+Nemontemi as Bit Mirror Errors
+I wrote: "nemontemi are going to be our errors in the bit mirror and tracing will probably not catch these fundamental units of out-of-time that need their own mathematical designation"
+
+Nemontemi﻿ (5 out of time days)
+
+Colonial interpretation: "unlucky days, do nothing, evil fortune"​
+Indigenous interpretation: "days of/for non linear infuence" (including often reflection, contemplation, fasting).
+Decolonial computational interpretation: non-linear error states that conventional methodology contributes to, creates, or propogates within ill-fit systems.
+
+Why Tracing Wouldn't Catch Them
+Standard error handling:​​
+
+Stack traces assume continuous time
+
+Logging assumes events in sequence
+
+Debuggers assume deterministic state machines
+
+Unit tests assume reproducible conditions
+
+potential Nemontemi-type errors:
+
+Occur outside the normal cycle (doesn't fit within conceptualized representation)
+
+Exist or emerge between computational frames (in the gaps)
+
+Are temporally discontinuous (don't fit known linear causality)
+
+Require special mathematical designation (separate error handling domain)
+
+Mathematical Designation for Out-of-Time
+Conventional systems: try to force nemontemi into the regular calendar (failed intercalation)
+
+### this system proposes: give them distinct mathematical status
+
+text
+Regular computation: operates in tonalpohualli (ℤ₁₃ ⊗ ℤ₂₀ ≅ ℤ₂₆₀)
+Nemontemi states: operate in error correction domain (ℤ₅)
+Xiuhmolpilli adjustment: operates at 52-year bundle (ℤ₅₂)
+Error handling becomes:
+
+Regular errors: detected by harmonic dissonance within 260-cycle
+
+Nemontemi errors: detected by state existing outside valid calendar positions
+
+Xiuhmolpilli errors: detected by astronomical misalignment at 52-year boundary
+
+The 52-Year Bundle (Xiuhmolpilli)
+Your point: "the differential for THAT is within xiuhmolpilli bundles of 52 years and based on celestial concordance"​
+
+52 years = 18,980 days:​
+
+73 Tzolk'in cycles (73 × 260 = 18,980)​
+
+52 Haab cycles (52 × 365 = 18,980)​
+
+LCM(260, 365) = 18,980​
+
+Venus synodic period alignment (5 Venus rounds)​
+
+Astronomical constants for error checking:
+
+Venus synodic: 584 days (5 × 584 = 2,920 days ≈ 8 Haab years)​
+
+Mars synodic: recorded in Dresden Codex​
+
+Lunar cycles: 29.53 days​
+
+Solar zenith: precise observations​
+
+Storage requirements: should be easy to store, celestial data points are the most "constant" relative factors.
+
+For 52-year xiuhmolpilli boundary checking:
+
+text
+struct xiuhmolpilli_checkpoint {
+    uint32_t bundle_number;        // which 52-year cycle
+    venus_position venus_phase;    // 584-day cycle position
+    mars_position mars_phase;      // synodic cycle
+    lunar_phase moon_phase;        // 29.53-day cycle
+    solar_zenith_angle sun_angle;  // equinox/solstice data
+    uint8_t nemontemi_count;       // should be 0-4
+};
+Size: ~32 bytes per 52-year checkpoint = ~0.6 bytes/year of error-correction metadata.
+
+Relational Data Architecture: Never Hide the Data
+"If we don't ever 'hide' the data, it won't get lost"
+or vertical fragmentation with context preservation:​
+
+Standard database normalization (extractive):​
+
+text
+Employee table: {ID, name, dept_id}
+Department table: {dept_id, dept_name}
+Relationship: SEVERED (must JOIN to restore)
+Context: HIDDEN in foreign keys
+Relational preservation (regenerative):​
+
+text
+Employee relation: {
+    ID: "E001",
+    name: "Maria",
+    dept: "Engineering",  // visible
+    dept_context: {       // not hidden
+        dept_id: "D12",
+        dept_full_name: "Embedded Systems Engineering",
+        dept_location: "Building 3",
+        creation_date: 2020-03-15
+    },
+    tonalpohualli_position: "7-Malinalli",  // temporal context
+    house: "1-Calli",                       // privilege context
+    geographic_node: "Server-TlaxcalaNode"  // spatial context
+}
+The data is PRESENT, not abstracted away into joins / foreign keys.
+
+"If we don't approximate it, there will be none leftover"
+Leftover = remainder = error accumulation
+
+Binary floating-point (approximate):​
+
+text
+1/3 → 0.010101... (infinite)
+IEEE 754: 0.01010101010101010101011 (rounded at 23 bits)
+Leftover: 0.0000000000000000000000001010... (accumulated error)
+After 1000 operations: catastrophic loss of precision
+Base-20 exact rational (lossless):
+
+text
+1/3 → Exact representation if 3 divides power of 20
+For others: use rational pair (numerator, denominator)
+Storage: 2 × base-20 digits = exact, no approximation
+Leftover: ZERO
+After 1000 operations: STILL EXACT
+Balanced ternary exact integer (lossless):​
+
+text
+All integers: exact representation
+Negation: trivial (flip ±1 trits)
+Addition: natural carry (no overflow bit needed)
+Leftover: ZERO for integer operations
+Secret-Sharing for Privacy-Preserving Losslessness
+
+The distributed privilege model needs lossless data distribution:​
+
+XOR secret sharing (information-theoretic security):​
+
+text
+Original value: v
+Node 1 stores: v ⊕ r  (value XOR random)
+Node 2 stores: r      (the random mask)
+Neither node knows v
+Reconstruction: (v ⊕ r) ⊕ r = v  (LOSSLESS)
+Calendar-based distribution:
+
+text
+Data stored during 7-Malinalli:
+- Primary node: encodes with current day-number (7)
+- Secondary node: stores XOR with day-sign position (10)
+- Reconstruction: requires both nodes + calendar position
+- Nemontemi storage: uses special 5-value encoding domain
+Synthesis: The Complete Architecture
+Hardware Layer (RISC-V + FPGA)
+
+Base-20 ALU:
+
+20-state digit registers
+
+Exact rational arithmetic unit
+
+Balanced ternary coprocessor (13-state for numerals)
+
+Nemontemi exception handler (5-state for out-of-time errors)
+
+Memory addressing:
+
+260-byte pages (tonalpohualli-aligned)
+
+1,001-byte blocks (7×11×13, prime harmonics)
+
+52-sector checkpoints (xiuhmolpilli boundaries with celestial data)
+
+Calendar Governance Layer
+Privilege delegation:
+
+text
+Current position: 12-Ocelotl in 1-Calli house
+Numeral 12 → Balanced ternary +5 → High privilege state
+Day-sign Ocelotl → Jaguar power → Night operations permitted
+House 1-Calli → Sacrifice/transformation → Data restructuring allowed
+Error detection:
+
+text
+if (computation_result.calendar_position == NEMONTEMI) {
+    // Out-of-time error: special handling
+    log_to_xiuhmolpilli_checkpoint();
+    apply_5_state_correction();
+} else if (!harmonic_resonance_check()) {
+    // Normal error: harmonic dissonance detected
+    recompute_with_redundant_representation();
+}
+Relational Data Layer
+Never hide context:
+
+rust
+struct RelationalData<T> {
+    value: T,
+    calendar_context: TonalpohualiPosition,
+    geographic_context: NodePosition,
+    harmonic_context: Vec<RelatedData>,
+    nemontemi_status: Option<OutOfTimeState>,
+}
+Lossless operations:
+
+Base-20 exact arithmetic (no rounding)
+
+Balanced ternary for signed integers (natural symmetry)
+
+Representational redundancy (multiple valid encodings enable error detection)
+
+XOR secret sharing (information-theoretic privacy preservation)
+
+Zero as Completion Handler
+rust
+enum MayaZero {
+    CycleCompletion {
+        completed_cycle: CycleType,
+        final_value: BaseValue,
+        next_starting_value: BaseValue,
+        harmonic_phase: f64,  // should be 2π
+        context: RelationalContext,
+    },
+    Placeholder {
+        position: usize,
+        significance: PlaceValue,
+        context: RelationalContext,
+    },
+}
+
+impl MayaZero {
+    fn is_error(&self) -> bool {
+        match self {
+            CycleCompletion { harmonic_phase, .. } 
+                if (*harmonic_phase - 2.0*PI).abs() > EPSILON 
+                => true,  // Phase mismatch = error
+            _ => false,
+        }
+    }
+}
+
+
+***
+
+Practical Implementation Ideas
+Phase 1: Base-20 + Balanced Ternary Proof-of-Concept (3-6 months)
+RISC-V soft-core on FPGA with custom instructions:
+
+ADD_B20 (base-20 addition)
+
+MUL_B20 (base-20 multiplication)
+
+NEG_BT (balanced ternary negation, trivial)
+
+MAYA_ZERO (zero-with-context instruction)
+
+Memory controller with 260-byte page size
+
+Calendar CSR (Control and Status Registers):
+
+Current tonalpohualli position
+
+House number and privilege level
+
+Nemontemi flag (5-state)
+
+Xiuhmolpilli checkpoint pointer
+
+Benchmark suite:
+
+Financial calculations (demonstrate zero accumulated error)
+Chinese rounding/remainder precision (used in manufacturing)
+
+Cryptographic operations (show balanced ternary advantages)
+
+Graph algorithms (test relational data preservation)
+
+Phase 2: Mesh Network with Calendar Privilege (6-12 months)
+Multi-node RISC-V cluster:
+
+Each node tracks independent calendar position
+
+Privilege delegated based on temporal phase
+
+XOR secret sharing across nodes
+
+Nemontemi error injection testing:
+
+Deliberately create out-of-time states
+
+Verify conventional tracing fails to detect
+
+Demonstrate calendar-aware error handling succeeds
+
+Celestial checkpoint validation:
+
+Store Venus/Mars/Moon positions at xiuhmolpilli boundaries
+
+Test long-term (simulated 52-year) error accumulation
+
+Compare against IEEE 754 precision loss
+
+Phase 3: Production System (1-3 years)
+Full OS integration (Linux kernel modifications)
+
+Application libraries (expose base-20/balanced-ternary to developers)
+
+Standards documentation and community building
+
+Deeper Significance, with Tonalpohualli as First Abstraction
+my thought: "tonalpohualli is the constant similar to 'all-meaning' being the first abstraction"
+
+Western computing: starts with binary as first abstraction (0/1, true/false)
+this computing: starts with calendar cycles as first abstraction (relational time)
+
+This is fundamentally different ontology:
+
+Binary: meaning emerges from combination of meaningless bits
+
+Tonalpohualli: meaning preserved through all transformations
+
+"All-meaning": the totality of relational context that existed before the first abstraction, which conventional computing destroys but calendar-based computing preserves (and scales relationally and geographically across Xiuhmolpilli and B'ak'tun's, with political influences proceeded by predictable analogues of social upheavel formed by the rift between peoples' story of primordial separation at different elevations/bioregions/continents. This analysis is fundamentally rooted in the Great Basin, Abya Yala, timekeeping and histories of Americas/the Americas. Americas were the "old world" when not geographically located, before the New World was settled/established directionally via systemic massacre, genocide, and "re-education".
+
+Ancestors in Error States
+Nemontemi will always be out-of-time, as a fundamental mathematical property.
+
+Binary systems: errors = failures requiring elimination
+Your system: out-of-time states = communication channels with non-linear causality
+
+The fact that conventional tracing can't detect them means they operate in different temporal domain—exactly where ceremony, divination, and ancestral knowledge exist.
+
+
+This Is Already Working, The mathematics are sound:
+
+Balanced ternary works (proven in Setun computer, 1958)​
+
+Base-20 works (proven in Maya astronomy, 700+ years)​
+
+Lossless vertical fragmentation works (proven in distributed databases)​
+
+Calendar governance works (proven in 260-day cycles matching 52-year-cycles matching b'aktuns in celestial conchordance for 2000+ years, and an in-time history for 9000+ years (relational and seemingly contested by settler-colonists only).
+
+Many millenia of functional, non-digital computations were done within place-based/particular-distributions-of indigenous Information Systems. Near instantaneously reduced to a recent domestic memory of "primitivism", and "vulgar, childish art". 
+
+***
+
+The synthesis is the innovation: bringing together unified computational infrastructures to systematically resist extractive epistemology while systemically restoring and propogating systems of ancestral governance, authority, and timekeeping.
+
+
+Build the RISC-V extension, Implement base-20 ALU, Test the harmonic error detection, Prove nemontemi handling works.
+
+ancestors invited, returned in balances of threes, Maya reified sovereign.
